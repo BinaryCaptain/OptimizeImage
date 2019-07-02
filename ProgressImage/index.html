@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>progressive image</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      main {
+        width: 70%;
+        max-width: 750px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .full {
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+      }
+
+      .space {
+        width: 100%;
+        height: 200px;
+      }
+    </style>
+    <link rel="stylesheet" href="./dist/index.css" />
+  </head>
+
+  <body>
+    <h1>progressive image demo</h1>
+    <main id="app">
+      <div class="progressive full">
+        <img
+          class="preview lazy"
+          data-src="./assets/1.jpg"
+          src="./assets/r1.jpg"
+        />
+      </div>
+
+      <div class="space"></div>
+      <div class="progressive">
+        <img
+          class="preview lazy"
+          data-src="./assets/2.jpg"
+          src="./assets/r2.jpg"
+        />
+      </div>
+
+      <div class="space"></div>
+      <div class="progressive">
+        <img
+          class="preview lazy"
+          data-src="./assets/3.jpg"
+          src="./assets/r3.jpg"
+        />
+      </div>
+
+      <div class="space"></div>
+      <div class="progressive">
+        <img
+          class="preview lazy"
+          data-src="./assets/7.jpg"
+          src="./assets/r7.jpg"
+        />
+      </div>
+
+      <div class="space"></div>
+      <div class="progressive">
+        <img
+          class="preview lazy"
+          data-src="./assets/6.jpg"
+          src="./assets/r6.jpg"
+        />
+      </div>
+
+      <div class="space"></div>
+      <div class="progressive">
+        <img
+          class="preview lazy"
+          data-src="./assets/5.jpg"
+          src="./assets/r5.jpg"
+        />
+      </div>
+
+      <div class="space"></div>
+      <div class="progressive full">
+        <img
+          class="preview lazy"
+          data-src="./assets/4.jpg"
+          data-srcset="./assets/4.jpg 960w, ./assets/4-m.jpg 1280w, ./assets/4-l.jpg 1920w"
+          src="./assets/r4.jpg"
+        />
+      </div>
+    </main>
+    <script src="./dist/index.js"></script>
+    <script>
+      (function() {
+        new Progressive({
+          el: "#app",
+          lazyClass: "lazy",
+          removePreview: true,
+          scale: true
+        }).fire();
+      })();
+    </script>
+  </body>
+</html>
